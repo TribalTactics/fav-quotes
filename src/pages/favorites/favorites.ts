@@ -18,7 +18,8 @@ export class FavoritesPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public quotesService: QuotesService,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController
+  ) {
   }
 
   ionViewDidLoad() {
@@ -26,13 +27,11 @@ export class FavoritesPage {
   }
 
   ionViewWillEnter() {
-    console.log('ionViewWillEnter');
     this.favoriteQuotes = this.quotesService.getFavoriteQuotes();
-	console.log(this.favoriteQuotes);
   }
 
   onViewQuote(quote: Quote) {
-    const modal = this.modalCtrl.create(QuotePage, quote);
+    const modal = this.modalCtrl.create(QuotePage);
     modal.present();
   }
 

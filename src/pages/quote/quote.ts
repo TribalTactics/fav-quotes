@@ -11,7 +11,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 @IonicPage()
 @Component({
   selector: 'page-quote',
-  templateUrl: 'quote.html',
+  templateUrl: 'quote.html'
 })
 export class QuotePage {
 
