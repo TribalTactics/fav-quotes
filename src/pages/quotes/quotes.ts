@@ -28,7 +28,7 @@ export class QuotesPage {
     console.log('ionViewDidLoad QuotesPage');
   }
 
-  onAddToFavorite(selectedQuote: Quote) {
+  onAddToFavorites(selectedQuote: Quote) {
     const alert = this.alertCtrl.create(
       {
         title: 'Add To Favorite',
@@ -53,6 +53,14 @@ export class QuotesPage {
     );
 
     alert.present();
+  }
+
+  onRemoveFromFavorites(quote: Quote){
+    this.quotesService.removeFromFavorites(quote);
+  }
+
+  isFavorite(quote: Quote) {
+    return this.quotesService.isFavorite(quote);
   }
 
 }
