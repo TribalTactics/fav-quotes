@@ -44,4 +44,8 @@ export class FavoritesPage {
     });
   }
 
+  onRemoveFromFavorites(quote: Quote){
+    this.quotesService.removeFromFavorites(quote);
+  }
+
 }
