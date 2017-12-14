@@ -5,6 +5,9 @@ import { Quote } from '../../data/quote.interface';
 import { QuotesService } from '../../services/quotes.service';
 import { QuotePage } from '../quote/quote';
 
+// Services
+import { SettingsService } from '../../services/settings.service';
+
 @IonicPage()
 @Component({
   selector: 'page-favorites',
@@ -13,14 +16,14 @@ import { QuotePage } from '../quote/quote';
 export class FavoritesPage {
   
   favoriteQuotes: Quote[];
-
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public quotesService: QuotesService,
-    public modalCtrl: ModalController
-  ) {
-  }
+    public modalCtrl: ModalController,
+    public settingsService: SettingsService
+  ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FavoritesPage');
@@ -46,6 +49,10 @@ export class FavoritesPage {
 
   onRemoveFromFavorites(quote: Quote){
     this.quotesService.removeFromFavorites(quote);
+  }
+
+  getBackground(){
+    return this.settingsService.getAlternativeBackground() ? 'altQuoteBackground' : 'quoteBackground';
   }
 
 }

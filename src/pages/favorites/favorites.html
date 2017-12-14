@@ -22,7 +22,7 @@
   <ion-list>
     <ion-item-sliding *ngFor="let quote of favoriteQuotes" >
       <ion-item
-        color="quoteBackground"
+        [color]="getBackground()"
         (click)="onViewQuote(quote)"
       >
         <h2>{{ quote.person }}</h2>
